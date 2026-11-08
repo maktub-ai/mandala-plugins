@@ -4,7 +4,9 @@ The unified catalog for Mandala data-only plugins: themes, language packs and pe
 
 See the [authoring protocol](https://github.com/MaktubCN/open-mana/blob/main/docs/market-ui-extensions.md#unified-plugin-protocol-mandala-012) and [pet format](https://github.com/MaktubCN/open-mana/blob/main/docs/market-ui-extensions.md#pets). Documentation access is restricted while Mandala remains private.
 
-The catalog starts empty. Existing packages remain in the compatible [theme](https://github.com/maktub-ai/mandala-themes), [language](https://github.com/maktub-ai/mandala-language-packs) and [pet](https://github.com/maktub-ai/mandala-pets) catalogs, preserving installed identities and older clients. Do not duplicate those releases here under new identities.
+The Arabic starter language plugin and [English reference dictionary](messages.en.json) live here. See the [language contribution guide](docs/languages.md) and [Arabic manifest](plugins/arabic-starter/mandala-plugin.json). Translation bytes are unchanged; the starter is partial and has not been reviewed by a native Arabic speaker.
+
+The [legacy language catalog](catalogs/languages.json) preserves existing language IDs and points to the same payload. The [old language repository](https://github.com/maktub-ai/mandala-language-packs) remains an entry point for older Apps and fixed commit links. Do not delete it until those consumers are retired. Existing [theme](https://github.com/maktub-ai/mandala-themes) and [pet](https://github.com/maktub-ai/mandala-pets) catalogs remain compatible sources.
 
 ## Contributing
 
