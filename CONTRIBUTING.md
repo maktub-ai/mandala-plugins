@@ -1,11 +1,30 @@
-# Contributing
+# Contributing an official Mandala plugin
 
-1. Follow the [Mandala data plugin specification](https://github.com/MaktubCN/open-mana/blob/main/docs/market-ui-extensions.md). Use `execution: "data"`, schema version 1, and `minAppVersion` of at least `0.1.2`. Use the documented contribution formats. Library sections require `minAppVersion` of at least `0.1.3`. See the [Omino section](plugins/omino/section.json) for a project file declaration.
-2. Validate every declared JSON file locally with Mandala's `scripts/validate-data-plugin.ts`. For an in-repository package, stage a copy of its manifest as `mandala-plugin.json` at the validation directory root and preserve each declared payload's repository-relative path. No executable entries, hooks, HTML, arbitrary CSS, remote assets, credentials, personal data or private organization content may be included. Use synthetic previews only; never submit real user screenshots.
-3. Review both author and committer metadata before uploading package history. Commit the manifest and payloads before referencing them. Pin a real 40-character commit, hash the manifest's exact bytes in the catalog, and hash each payload in the manifest. All files must come from that same repository and commit and total at most 4 MiB.
-4. Submit a PR editing the full catalog, `catalogs/v2/catalog.json`. Keep compatible theme, language and pet releases available in the 0.1.2 root `catalog.json`; only the full catalog can declare `library-section`. Keep `format: "mandala-plugin-catalog"`, `version: 1` and `items`. Each item has `id`, `name`, `description`, `version`, `publisher`, `minAppVersion`, `kinds`, and `package` (`repository`, `revision`, `path`, `sha256`). Metadata and kinds must match the manifest.
-5. Keep release versions in `x.y.z` form. Each changed release needs a new version, revision and checksums. Do not move an installed identity to a different package repository without an explicit migration decision.
+## Submit the package
 
-Maintainers validate locally and review contributions before merging. A publisher label is attribution, not a trust guarantee. Preserve existing IDs and do not create duplicate language providers. The official Arabic starter is an explicit migration: preserve its contribution ID and locale, keep `catalogs/languages.json` synchronized with its payload, and retain the old repository entry point for older clients. New language contributions follow [docs/languages.md](docs/languages.md). Documentation and review text use English; native language names and translation source keys retain their required spelling.
+1. Open a pull request in `maktub-ai/mandala-plugins` with your manifest at `plugins/<id>/mandala-plugin.json` and the JSON files it declares. Put new plugin files together under `plugins/<id>/`. The Arabic starter keeps its existing payload under `packages/`.
+2. Use the [public plugin interface](docs/plugin-api.md) and set the minimum Mandala version for the contributions you use. Package paths start at the repository root. Compute the SHA-256 of each payload's exact bytes and put it in the manifest. The manifest and its payloads together must fit within 4 MiB.
+3. Keep package data and previews free of credentials, personal data and private project content. Test with a synthetic project. Maintainers with a Mandala checkout can also validate the payload formats against the application parser:
 
-Verify that the catalog and every referenced JSON file can be downloaded anonymously. Do not enable automatic cloud CI/CD.
+```sh
+node --import tsx scripts/validate-data-plugin.ts /path/to/mandala-plugins plugins/omino/mandala-plugin.json
+```
+
+## Publish the release
+
+1. After the package lands on `main`, open a catalog pull request in this repository. Add or update the entry in [the full catalog](catalogs/v2/catalog.json). Use the landed 40-character commit for `package.revision`, `maktub-ai/mandala-plugins` for `package.repository` and the manifest's repository-relative path for `package.path`. Put the SHA-256 of the committed manifest in `package.sha256`.
+2. Keep the id, name, description, version, minimum App version and contribution kinds consistent with the manifest. Keep existing plugin and contribution IDs across updates. Give each changed release a new `x.y.z` version, pinned commit and checksums.
+3. From a full clone with the official repository as `origin`, refresh its main branch and run the local catalog check. Include the result in your pull request.
+
+```sh
+git fetch origin main
+node scripts/check-catalog.mjs
+```
+
+Maintainers review locally. After publication, verify anonymous downloads and install the plugin in an isolated Mandala profile. The market needs no publisher credentials to download a package.
+
+## Compatibility
+
+The [root catalog](catalog.json) serves older clients. Keep compatible theme, language and pet releases there. Library tabs require the full catalog and Mandala 0.1.3 or later. Keep the Arabic starter's legacy language ID and payload link in [the language catalog](catalogs/languages.json). See the [language pack guide](docs/languages.md) for translation conventions.
+
+Use English for documentation and reviews. Preserve native language names and translation source keys.

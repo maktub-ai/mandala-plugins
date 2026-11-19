@@ -1,8 +1,8 @@
 # Mandala Plugins
 
-The unified catalog for Mandala data-only plugins: themes, language packs, pets and Library tabs. Each plugin declares its minimum Mandala version. A plugin can contain several contributions, installed and updated together and applied individually. Executable plugins are not supported.
+This repository hosts the official Mandala plugin market. Each plugin has a manifest at `plugins/<id>/mandala-plugin.json`. The catalog, manifests and JSON payloads are all published here. Mandala reads the contributions declared in the manifest when a user installs a plugin.
 
-See the [authoring protocol](https://github.com/MaktubCN/open-mana/blob/main/docs/market-ui-extensions.md#unified-plugin-protocol-mandala-012) and [pet format](https://github.com/MaktubCN/open-mana/blob/main/docs/market-ui-extensions.md#pets). Documentation access is restricted while Mandala remains private.
+Authors can contribute themes, language packs, pets and Library tabs through the [public plugin interface](docs/plugin-api.md). The current interface accepts declarative JSON. A plugin can group several contributions in one release.
 
 [Omino](plugins/omino/mandala-plugin.json) adds a **Plan** tab to the Library in Mandala 0.1.3 or later. Install Omino from the Market to browse plans for your Mandala projects. Opening a plan displays the HTML that Omino generated. The plugin contains two JSON files.
 
@@ -12,7 +12,7 @@ Mandala 0.1.3 and later read the [full catalog](catalogs/v2/catalog.json). The [
 
 ## Contributing
 
-Prepare a `mandala-plugin.json` manifest and existing-format JSON payloads in your package repository. Run Mandala's local `scripts/validate-data-plugin.ts` check, commit the files, then submit a catalog-only PR here with the real 40-character commit and exact SHA-256 checksums. See [CONTRIBUTING.md](CONTRIBUTING.md).
+Submit the manifest and payloads to this repository. Once the files are on `main`, submit the catalog entry pinned to that commit and run `node scripts/check-catalog.mjs`. See the [contribution guide](CONTRIBUTING.md).
 
 Review checks cover data-only content, valid contributions, matching metadata, checksums, minimum App version and a 4 MiB combined manifest/payload limit. No package scripts are run, and this repository does not enable automatic cloud CI/CD.
 

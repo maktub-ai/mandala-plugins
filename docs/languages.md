@@ -2,7 +2,7 @@
 
 ## Language package format
 
-Create `packages/fr.mandala-language.json`, for example:
+Create `plugins/french/fr.mandala-language.json`, for example:
 
 ```json
 {
@@ -28,7 +28,7 @@ This is a minimal format example, not a complete French translation. The Chinese
 - The dictionary must contain 1–10,000 entries. Source keys are limited to 4,000 characters and values to 8,000 characters. The entire file must fit within 4 MiB.
 - Describe coverage and native-speaker review honestly. Verify punctuation, numbers, and mixed-direction text; code and terminals remain left-to-right. Compare navigation, settings rows, and Market details before and after switching languages, including narrow windows and a restart.
 
-There is currently no local language-file import or visual translation editor. Run the parser check below before a PR; report linguistic review separately. The maintainer verifies the installation/application flow after catalog publication in an isolated profile. A partial pack is acceptable if its scope is explicit.
+There is currently no local language-file import or visual translation editor. Use the validation steps in the [contribution guide](../CONTRIBUTING.md); report linguistic review separately. The maintainer verifies the installation/application flow after catalog publication in an isolated profile. A partial pack is acceptable if its scope is explicit.
 
 To refresh the English reference, maintainers run this from the current open-mana checkout after installing dependencies:
 
@@ -40,8 +40,8 @@ Some dynamically constructed sentences do not yet have stable template keys. The
 
 ## Submit a language plugin
 
-1. Submit language payloads under `packages/` in this repository, along with a `mandala-plugin.json` manifest under `plugins/<id>/`. Use a `languagePacks` contribution, a stable contribution ID, a repository-relative payload path and the exact payload SHA-256. Do not introduce a second provider for an existing locale.
-2. Follow [CONTRIBUTING.md](../CONTRIBUTING.md) for local validation and the two-commit publication process. All package files must be committed before `catalog.json` pins their 40-character commit and checksums. Manifest and payload downloads together must fit within 4 MiB.
+1. Submit the manifest and new language payloads together under `plugins/<id>/` in this repository. Use a `languagePacks` contribution, a stable contribution ID, a repository-relative payload path and the exact payload SHA-256. Do not introduce a second provider for an existing locale.
+2. Follow [CONTRIBUTING.md](../CONTRIBUTING.md) for local validation and the two-commit publication process. All package files must be committed before the unified catalog pins their 40-character commit and checksums. Manifest and payload downloads together must fit within 4 MiB.
 3. Install into an isolated Mandala profile, explicitly apply the language, restart, and check translations and fallback in light/dark and narrow layouts. Never submit personal data or real-user screenshots. Record native-speaker review separately from parser and UI checks.
 
 ## Arabic starter and compatibility
@@ -52,4 +52,4 @@ The plugin release is `arabic-starter` 1.0.1. Its language contribution also use
 
 A migration-aware App can explicitly replace the official legacy Arabic installation with this plugin, without changing the selected locale. It must validate the official source and all bytes first. Older Apps without that migration still use the legacy catalog. The old repository remains necessary for their catalog requests and historical fixed commit links; do not delete it solely because the payload has moved.
 
-Private repositories are not readable by Market's anonymous downloader. Keep everything private until the owner separately approves publication; do not add credentials to enable downloads.
+The official market serves the reviewed package files anonymously from this repository.

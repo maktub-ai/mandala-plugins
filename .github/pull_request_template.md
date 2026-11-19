@@ -2,7 +2,8 @@
 
 - Name and release version:
 - Contribution types:
-- Pinned commit:
+- Package directory in this repository:
+- For a catalog release, package commit already on main and result of `node scripts/check-catalog.mjs`:
 - Local validation result and total bytes:
 
 ## Review
