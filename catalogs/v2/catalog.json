@@ -1,0 +1,40 @@
+{
+  "format": "mandala-plugin-catalog",
+  "version": 1,
+  "items": [
+    {
+      "id": "arabic-starter",
+      "name": "العربية (تجريبية)",
+      "description": "Arabic starter translation: navigation, Market and selected settings. Partial, not native-reviewed; missing text uses English.",
+      "version": "1.0.1",
+      "minAppVersion": "0.1.2",
+      "publisher": "MaktubCN",
+      "kinds": [
+        "language"
+      ],
+      "package": {
+        "repository": "maktub-ai/mandala-plugins",
+        "revision": "cc523a0aebca246c91013acf517f6652d5ffd83d",
+        "path": "plugins/arabic-starter/mandala-plugin.json",
+        "sha256": "a869a1d6ab0ad04496dc0122a5932faf0db0e5b29f810c5227ce5ecab40b2972"
+      }
+    },
+    {
+      "id": "omino",
+      "name": "Omino",
+      "description": "Open Omino’s original project plans in the Library and see how many decisions are waiting.",
+      "version": "1.0.0",
+      "minAppVersion": "0.1.3",
+      "publisher": "maktub-ai",
+      "kinds": [
+        "library-section"
+      ],
+      "package": {
+        "repository": "maktub-ai/mandala-plugins",
+        "revision": "e6c2c325591ebacc295309faa4e20f523b7f2fe8",
+        "path": "plugins/omino/mandala-plugin.json",
+        "sha256": "7eda23770609c190b5e346288411eb461a013f184170ac1cafd944f4616c2028"
+      }
+    }
+  ]
+}
