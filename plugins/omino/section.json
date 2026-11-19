@@ -1,0 +1,33 @@
+{
+  "format": "mandala-library-section",
+  "version": 1,
+  "type": "project-files",
+  "label": {
+    "zh": "计划",
+    "en": "Plan"
+  },
+  "icon": "target",
+  "emptyText": {
+    "zh": "这个项目还没有计划。让 agent 用 Omino 建一个即可。",
+    "en": "This project has no plans yet. Ask your agent to create one with Omino."
+  },
+  "updateText": {
+    "zh": "请让 agent 更新 Omino",
+    "en": "Ask your agent to update Omino."
+  },
+  "loopback": true,
+  "source": {
+    "kind": "collection",
+    "namespace": "omino",
+    "file": "view.html",
+    "summary": {
+      "file": "summary.json",
+      "format": "omino-summary",
+      "version": 1,
+      "title": "title",
+      "badgeItems": "waiting",
+      "closedField": "status",
+      "closedValue": "closed"
+    }
+  }
+}

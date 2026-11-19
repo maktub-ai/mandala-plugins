@@ -1,0 +1,19 @@
+{
+  "format": "mandala-plugin",
+  "schemaVersion": 1,
+  "execution": "data",
+  "id": "omino",
+  "name": "Omino",
+  "description": "Open Omino’s original project plans in the Library and see how many decisions are waiting.",
+  "version": "1.0.0",
+  "minAppVersion": "0.1.3",
+  "contributes": {
+    "librarySections": [
+      {
+        "id": "plan",
+        "path": "plugins/omino/section.json",
+        "sha256": "0db09587313b181c0b51251b93a3bce9307b73503927722eac736f223f3c454e"
+      }
+    ]
+  }
+}
