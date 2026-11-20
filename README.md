@@ -4,7 +4,7 @@ This repository hosts the official Mandala plugin market. Each plugin has a mani
 
 Authors can contribute themes, language packs, pets and Library tabs through the [public plugin interface](docs/plugin-api.md). The current interface accepts declarative JSON. A plugin can group several contributions in one release.
 
-[Omino](plugins/omino/mandala-plugin.json) adds a **Plan** tab to the Library in Mandala 0.1.3 or later. Install Omino from the Market to browse plans for your Mandala projects. Opening a plan displays the HTML that Omino generated. The plugin contains two JSON files.
+Project blueprints are built into Mandala and use the Omino plan format.
 
 The Arabic starter language plugin and [English reference dictionary](messages.en.json) live here. See the [language contribution guide](docs/languages.md) and [Arabic manifest](plugins/arabic-starter/mandala-plugin.json). Translation bytes are unchanged; the starter is partial and has not been reviewed by a native Arabic speaker.
 

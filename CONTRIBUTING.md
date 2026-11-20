@@ -7,7 +7,7 @@
 3. Keep package data and previews free of credentials, personal data and private project content. Test with a synthetic project. Maintainers with a Mandala checkout can also validate the payload formats against the application parser:
 
 ```sh
-node --import tsx scripts/validate-data-plugin.ts /path/to/mandala-plugins plugins/omino/mandala-plugin.json
+node --import tsx scripts/validate-data-plugin.ts /path/to/mandala-plugins plugins/arabic-starter/mandala-plugin.json
 ```
 
 ## Publish the release

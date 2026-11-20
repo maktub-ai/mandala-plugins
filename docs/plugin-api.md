@@ -7,7 +7,7 @@ A plugin is a JSON manifest and one or more JSON payloads. Mandala reads the dec
 | `themes` | `theme` | `mandala-theme`. Export a theme from Mandala Settings to generate the `theme`, `appearance` and `background` objects. |
 | `languagePacks` | `language` | `mandala-language`. Supply a locale, display name, text direction and message dictionary. Preserve the source keys and their placeholders. [Language guide](languages.md) · [Arabic example](../packages/ar.mandala-language.json) |
 | `pets` | `pet` | `mandala-pet`. Supply a `name` and a `states` object containing inline base64 image data URIs for `idle`, `working`, `waiting` and `error`. Optional states are `thinking`, `unknown`, `done` and `sleep`. Optional `tint: true` renders the image as a mask. |
-| `librarySections` | `library-section` | `mandala-library-section`. Declare a tab for local project HTML documents. [Omino example](../plugins/omino/section.json) |
+| `librarySections` | `library-section` | `mandala-library-section`. Declare a tab for local project HTML documents. |
 
 ## Manifest
 
